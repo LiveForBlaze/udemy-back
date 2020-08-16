@@ -1,19 +1,9 @@
 const express = require('express');
+const { welcome } = require('./modules');
+
 const app = express();
-const functions = require('./functions');
 
-const { handsome } = functions;
-
-const some = (req, res) => {
-  res.send('come get some!')
-}
-
-app.get('/', (req, res) => {
-  res.send({ hi: 'there' })
-});
-
-app.get('/some', some);
-//app.get('/handsome', handsome);
+app.get('/', welcome);
 
 const PORT = process.env.PORT || 5000;
 
